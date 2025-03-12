@@ -1,0 +1,64 @@
+name: App Request
+description: Request a new application
+title: "[App Request]: "
+labels: ["app_request", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this App Request!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: which-app
+    attributes:
+      label: Which application do you want to install and why?
+      description: Please provide details of the application and the benefits it will bring to the space
+      placeholder: I want to install <application> because <problem I need to solve>...
+    validations:
+      required: true
+  - type: input
+    id: app_uri
+    attributes:
+      label: Application Website
+      description: Where can we find more details about the application?
+      placeholder: https://www.myapp.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: location
+    attributes:
+      label: Location
+      description: Where does this application need to run?
+      options:
+        - External (public facing)
+        - Internal (only available in the space)
+      default: 1
+    validations:
+      required: true
+  - type: checkboxes
+    id: deployment-options
+    attributes:
+      label: Deployment Options
+      description: How does this app get deployed?
+      options:
+        - label: Docker
+        - label: Kubernetes
+        - label: Package Manager
+        - label: Source Code
+        - label: I don't know
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://docs.makemonmouth.co.uk/en/latest/code-of-conduct/). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+
